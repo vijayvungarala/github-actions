@@ -11,4 +11,18 @@ jobs:
           npm -v
           python --version
           node -v
+  parallel-mac-os-job:
+    runs-on: macos-latest
+    steps:
+      - name: check SW version
+        run: sw_version
+  
+  dependent-jobs:
+    runs-on: windows-latest
+    needs: run-shell-command
+    steps:
+      - name: echo a trsing on windows
+        run: Write-Output "Window String"
+      - name: Error string
+        run: doesnotexist
    
