@@ -1,0 +1,17 @@
+name: Matrix Demo
+on: [push]
+
+jobs:
+  matrix-demo:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [13,14,15]
+    steps:
+      - name: check node version before 
+        run: node -v
+      - uses: actions/setup-node@v3
+        with:
+          node-version: {{ matrix.node-version }}
+      - name: check node version after
+        run: node -v
