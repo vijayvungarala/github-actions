@@ -12,6 +12,6 @@ jobs:
         run: node -v
       - uses: actions/setup-node@v3
         with:
-          node-version: {{ matrix.node-version }}
+          node-version: ${{ matrix.node-version }}
       - name: check node version after
         run: node -v
